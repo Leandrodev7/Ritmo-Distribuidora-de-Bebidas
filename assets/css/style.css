@@ -1,0 +1,747 @@
+/* Ritmo Distribuidora de Bebidas
+   Autor: Leandro dev7 */
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Paleta Comercial Viva (Sem degrades tech) */
+  --color-primary: #0d47a1;         /* Azul Forte Comercial */
+  --color-primary-dark: #0a3880;
+  --color-primary-light: #1565c0;
+  
+  --color-whatsapp: #25d366;        /* Verde WhatsApp Oficial */
+  --color-whatsapp-hover: #1ebc57;
+  
+  --color-accent-red: #d32f2f;      /* Vermelho de Alerta / Promoção */
+  --color-accent-yellow: #fbc02d;   /* Amarelo Comercial */
+  
+  /* Superfícies */
+  --bg-page: #f4f6f9;               /* Fundo claro, limpo e profissional */
+  --bg-surface: #ffffff;
+  --bg-dark: #111827;
+  
+  /* Textos */
+  --text-dark: #1f2937;
+  --text-body: #4b5563;
+  --text-muted: #6b7280;
+  --text-white: #ffffff;
+  
+  /* Bordas e Sombras Limpas */
+  --border-light: #e5e7eb;
+  --border-primary: #90caf9;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  /* Dimensões */
+  --container-max: 1180px;
+}
+
+/* Reset Básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   BARRA DE AVISO LEGAL (+18)
+   ========================================================================== */
+.top-legal-bar {
+  background-color: #b71c1c;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   HEADER COM BOTÃO DE WHATSAPP EM DESTAQUE
+   ========================================================================== */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  gap: 16px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-info .brand-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-info .brand-sub {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-body);
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+/* Botão de WhatsApp Grande no Topo */
+.btn-whatsapp-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-whatsapp-header:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HERO SECTION - SÓLIDO, VIBRANTE E COM DADOS CONCRETOS
+   ========================================================================== */
+.hero-commercial {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 50px 0 60px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pill-delivery-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-whatsapp);
+}
+
+.hero-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.18;
+  color: #ffffff;
+}
+
+.hero-title mark {
+  background: none;
+  color: var(--color-accent-yellow);
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #e3f2fd;
+  max-width: 580px;
+}
+
+/* Badges Concretos de Entrega */
+.concrete-delivery-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.delivery-badge-card {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.delivery-badge-card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.delivery-badge-card span {
+  font-size: 11px;
+  color: #bbdefb;
+}
+
+/* Ações do Hero */
+.hero-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.btn-whatsapp-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-whatsapp-large:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+}
+
+.btn-catalog-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-catalog-anchor:hover {
+  background-color: #ffffff;
+  color: var(--color-primary);
+}
+
+/* Coluna da Foto Real do Estoque / Marcas */
+.hero-real-stock-frame {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-real-photo {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.stock-ribbon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: var(--color-accent-red);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stock-footer-info {
+  margin-top: 10px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   FAIXA DE DIFERENCIAIS OPERACIONAIS
+   ========================================================================== */
+.quick-benefits {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  padding: 24px 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.benefit-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.benefit-icon {
+  font-size: 28px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.benefit-card strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.benefit-card span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CATÁLOGO DE PRODUTOS REALISTA
+   ========================================================================== */
+.catalog-section {
+  padding: 60px 0;
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 36px;
+}
+
+.section-tag {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-main-heading {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 6px 0 10px;
+}
+
+.section-subtext {
+  font-size: 15px;
+  color: var(--text-body);
+}
+
+/* Filtros por Categoria */
+.category-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.cat-pill-btn {
+  background-color: #ffffff;
+  border: 2px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.cat-pill-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.cat-pill-btn.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Grid de Produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.product-item-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-primary);
+}
+
+.item-thumb-box {
+  position: relative;
+  height: 200px;
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+.item-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-tag-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.item-tag-badge.badge-18 {
+  background-color: var(--color-accent-red);
+}
+
+.item-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.item-cat {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.item-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.item-desc {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+.item-size {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.btn-item-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: background-color 0.15s;
+}
+
+.btn-item-whatsapp:hover {
+  background-color: var(--color-whatsapp-hover);
+}
+
+/* ==========================================================================
+   BLOCO DE EVENTOS E CONIGNAÇÃO
+   ========================================================================== */
+.wholesale-box {
+  background-color: #ffffff;
+  border: 2px solid var(--border-light);
+  border-radius: 14px;
+  padding: 36px;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.wholesale-text h3 {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.wholesale-text p {
+  font-size: 14px;
+  color: var(--text-body);
+  max-width: 600px;
+}
+
+/* ==========================================================================
+   FOOTER INSTITUCIONAL E AVISO LEGAL +18
+   ========================================================================== */
+.site-footer {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  padding: 50px 0 24px;
+  margin-top: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .brand-title {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.footer-warning-banner {
+  background-color: rgba(220, 38, 38, 0.2);
+  border-left: 4px solid var(--color-accent-red);
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: #fca5a5;
+  line-height: 1.4;
+}
+
+.footer-col h5 {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.footer-list a {
+  color: #d1d5db;
+  transition: color 0.15s;
+}
+
+.footer-list a:hover {
+  color: var(--color-whatsapp);
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid #374151;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-cta-actions {
+    justify-content: center;
+  }
+
+  .concrete-delivery-badges {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .wholesale-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .nav-links {
+    display: none;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-whatsapp-header span {
+    display: none;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
